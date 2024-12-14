@@ -52,13 +52,17 @@ class Guard:
         self.__char_data[0] = new_row
         self.__char_data[1] = new_col
 
+    def add_wall(self):
+        original_list = self.__board
+        for index, line in enumerate(self.__board):
+            for i in range(len(line)):
+                if self.__board[index][i] == ".":
+                    self.__board[index] = self.__board[index][0:i] + "#" + self.__board[index][i + 1:]
+                    print(self.__board[index])
+                    self.__board = original_list
+                    break
+
     def move(self):
-        while (
-                self.__char_data[0] != len(self.__board) - 1
-                and self.__char_data[0] != 0
-                and self.__char_data[1] != len(self.__board[0]) -1
-                and self.__char_data[1] != 0
-        ):
             direction, arrow = self.__get_direction()
             direction, arrow = self.change_direction(direction)  
 
@@ -114,5 +118,4 @@ class Guard:
             print(self.board)
             time.sleep(0.1)
             os.system("clear")
-
 

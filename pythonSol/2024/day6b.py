@@ -1,6 +1,4 @@
-from openFile import openFile
-
-from day6Class import Guard
+from 6b import Guard
 
 def main():
     data = []
@@ -17,4 +15,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
 
