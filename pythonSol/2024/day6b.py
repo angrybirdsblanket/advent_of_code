@@ -1,17 +1,12 @@
-from 6b import Guard
+from day6bClass import Guard
+from openFile import openFile
 
 def main():
     data = []
-    openFile(data, "../../data/day6test.txt")
+    openFile(data, "data/day6test.txt")
 
     guard = Guard(data)
-    guard.move()
-
-    count = 0
-    for row in data:
-        count += row.count("X")
-
-    print(f"The total number of unique tiles passed is {count + 1}")
+    print(guard.possible_positions())
 
 if __name__ == "__main__":
     main()

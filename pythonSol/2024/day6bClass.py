@@ -15,27 +15,37 @@ class Guard:
         for key, value in self.__directions.items():
             if key == self.__board[self.__char_data[0]][self.__char_data[1]]:
                 return value, key
-        return 
+        return 'right', '>' #this line is here because my lsp was getting mad at me for the potential of a "None" result, this however cannot happen so you can ignore this line 
 
-    def change_direction(self, direction):
+
+    def change_direction(self, direction, walls):
+        repetition = False
         new_direction = direction
         match direction:
             case "up":
-                if self.__board[self.__char_data[0] - 1][self.__char_data[1]] == "#":
+                if self.__board[self.__char_data[0] - 1][self.__char_data[1]] == "#" and [self.__char_data[0] - 1,self.__char_data[1]] not in walls:
                     new_direction = "right"
+                elif [self.__char_data[0] - 1,self.__char_data[1]] in walls:
+                    repetition = True
             case "down":
-                if self.__board[self.__char_data[0] + 1][self.__char_data[1]] == "#":
+                if self.__board[self.__char_data[0] + 1][self.__char_data[1]] == "#" and [self.__char_data[0] + 1,self.__char_data[1]] not in walls:
                     new_direction = "left"
+                elif [self.__char_data[0] + 1,self.__char_data[1]] in walls:
+                    repetition = True
             case "left":
-                if self.__board[self.__char_data[0]][self.__char_data[1] - 1] == "#":
+                if self.__board[self.__char_data[0]][self.__char_data[1] - 1] == "#" and [self.__char_data[0],self.__char_data[1] - 1] not in walls:
                     new_direction = "up"
+                elif [self.__char_data[0],self.__char_data[1] - 1] in walls:
+                    repetition = True
             case "right":
-                if self.__board[self.__char_data[0]][self.__char_data[1] + 1] == "#":
+                if self.__board[self.__char_data[0]][self.__char_data[1] + 1] == "#" and [self.__char_data[0],self.__char_data[1] + 1] not in walls:
                     new_direction = "down"
+                elif [self.__char_data[0],self.__char_data[1] + 1] in walls:
+                    repetition = True
 
         
         new_arrow = next(key for key, value in self.__directions.items() if value == new_direction)
-        return new_direction, new_arrow
+        return new_direction, new_arrow, repetition
 
 
     @property
@@ -52,19 +62,31 @@ class Guard:
         self.__char_data[0] = new_row
         self.__char_data[1] = new_col
 
-    def add_wall(self):
+    def possible_positions(self):
+        count = 0
         original_list = self.__board
         for index, line in enumerate(self.__board):
             for i in range(len(line)):
-                if self.__board[index][i] == ".":
+                if line[i] == ".":
+                    pass
                     self.__board[index] = self.__board[index][0:i] + "#" + self.__board[index][i + 1:]
-                    print(self.__board[index])
+                    if self.move():
+                        count += 1
                     self.__board = original_list
-                    break
+        return count
 
     def move(self):
+        walls = []
+        repetitions = False
+        while (
+                self.__char_data[0] != len(self.__board) - 1
+                and self.__char_data[0] != 0
+                and self.__char_data[1] != len(self.__board[0]) -1
+                and self.__char_data[1] != 0
+                and not repetitions
+        ):
             direction, arrow = self.__get_direction()
-            direction, arrow = self.change_direction(direction)  
+            direction, arrow, repetitions = self.change_direction(direction, walls)  
 
             match direction:
                 case "up":
@@ -115,7 +137,8 @@ class Guard:
                         + arrow
                         + self.__board[self.__char_data[0]][self.__char_data[1] + 1 :]
                     )
-            print(self.board)
-            time.sleep(0.1)
-            os.system("clear")
+        if repetitions:
+            return True
+        else:
+            return False
 
