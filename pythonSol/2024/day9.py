@@ -1,10 +1,11 @@
 from openFile import openFile
+import copy
 
 data = []
 file_block_size = []
 file_gap_size = []
 
-openFile(data, "data/day9test.txt")
+openFile(data, "data/day9.txt")
 
 for i in range(len(data[0])):
     if i % 2 == 0:
@@ -20,4 +21,18 @@ for i in range(len(file_block_size)):
     if i < len(file_block_size) - 1:
         file_table.extend(['.'] * int(file_gap_size[i]))
 
-print(file_table)
+old_file_table = copy.deepcopy(file_table)
+
+for i in range(len(file_table) - 1, -1, -1):
+    dot = file_table.index(".")
+    if old_file_table[i] != "." and dot < i:
+        file_table[i], file_table[dot] = file_table[dot], file_table[i]
+
+checksum = 0
+
+for i in range(len(file_table)):
+    if file_table[i] != ".":
+        checksum += int(file_table[i]) * i
+
+print(checksum)
+
