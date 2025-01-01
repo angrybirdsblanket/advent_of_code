@@ -6,7 +6,7 @@ data = []
 file_block_size = []
 file_gap_size = []
 
-openFile(data, "data/day9.txt")
+openFile(data, "data/day9test.txt")
 
 for i in range(len(data[0])):
     if i % 2 == 0:
@@ -24,16 +24,10 @@ for i in range(len(file_block_size)):
 
 old_file_table = copy.deepcopy(file_table)
 
-for i in range(len(file_table) - 1, -1, -1):
-    dot = file_table.index(".")
-    if old_file_table[i] != "." and dot < i:
-        file_table[i], file_table[dot] = file_table[dot], file_table[i]
+print(file_gap_size)
 
-checksum = 0
-
-for i in range(len(file_table)):
-    if file_table[i] != ".":
-        checksum += int(file_table[i]) * i
-
-print(checksum)
-
+for i in range(-1, -(len(file_block_size)), -1):
+    gap_index = 0
+    for j in range(len(file_gap_size)):
+        if int(file_block_size[i]) < int(file_gap_size[j]):
+            length = len(file_block_size[i]) * int(file_block_size[i])

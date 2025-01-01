@@ -1,4 +1,4 @@
-with open("../../data/day1.txt", "r") as db:
+with open("data/day1.txt", "r") as db:
     x = db.readlines()
     list1 = []
     list2 = []

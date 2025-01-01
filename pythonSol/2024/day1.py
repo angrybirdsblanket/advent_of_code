@@ -1,12 +1,17 @@
-with open("../../data/day1victoria.txt", "r") as db:
-    x = db.readlines()
-    list1 = []
-    list2 = []
-    for line in x:
-        listtemp = line.split("   ")
-        listtemp[1] = listtemp[1][0:-1]
-        list1.append(listtemp[0])
-        list2.append(listtemp[1])
+from openFile import openFile
+
+data = []
+
+openFile(data, "data/day1.txt")
+
+list1 = []
+list2 = []
+
+for line in data:
+    list1.append(line.split("   ")[0])
+    list2.append(line.split("   ")[1])
+
+
 
 list1.sort()
 list2.sort()

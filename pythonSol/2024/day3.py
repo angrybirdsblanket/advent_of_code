@@ -2,7 +2,7 @@ import re
 from openFile import openFile
 
 arr = []
-file = "../../data/day3.txt"
+file = "data/day3.txt"
 
 result = []
 openFile(arr, file)

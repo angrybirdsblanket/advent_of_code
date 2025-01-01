@@ -1,6 +1,6 @@
 data = []
 
-with open("../../data/day2.txt", "r") as db: 
+with open("data/day2.txt", "r") as db: 
     x = db.readlines()
     for i in range(len(x)):
         arr = x[i].split(" ")

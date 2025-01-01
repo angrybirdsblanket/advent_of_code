@@ -31,7 +31,7 @@ def splitterFunction(input, row, col):
 
 def main():
     input = []
-    openFile(input, "../../data/day4.txt")
+    openFile(input, "data/day4.txt")
 
     print(check_X_MAS(input))
 

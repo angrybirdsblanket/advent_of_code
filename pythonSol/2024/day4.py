@@ -1,7 +1,7 @@
 from openFile import openFile
 
 data = []
-openFile(data, "../../data/day4test.txt")
+openFile(data, "data/day4test.txt")
 
 def diagonalSearch(inputArr, count, direction):
     rows = len(inputArr)

@@ -2,7 +2,7 @@
 import re
 
 
-memory_content = open('../../data/day3.txt').read()
+memory_content = open('data/day3.txt').read()
 instruction_pattern = re.compile(r'mul\((\d{1,3}),(\d{1,3})\)')
 
 
