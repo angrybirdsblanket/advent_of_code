@@ -1,11 +1,10 @@
 from openFile import openFile
-a
 from day6Class import Guard
 
 def main():
     data = []
     #i changed which directory im running the code from day 6 onwards, ignore the missing ../../
-    openFile(data, "data/day6.txt")
+    openFile(data, "data/day6test.txt")
 
     guard = Guard(data)
     guard.move()
