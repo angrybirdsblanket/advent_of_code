@@ -1,10 +1,5 @@
-from openFile import openFile
-import sys
+from openFile import *
 from collections import deque
-
-data = []
-
-openFile(data, sys.argv[1])
 
 DIRECTIONS = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
@@ -36,16 +31,25 @@ def bfs(data, row, col, char):
     group_coordinates.sort()
     return tuple(group_coordinates), count
 
-def cal_sides(data, set_data):
-    rows = []
-    cols = []
+def neighbours(data, row, col):
+    count = 0
+    char = data[row][col]
+    for direction in DIRECTIONS:
+        n_row, n_col = row + direction[0], col + direction[1]
+        if 0 <= n_row < len(data) and 0 <= n_col < len(data[0]):
+            if data[n_row][n_col] == char:
+                count += 1
+    
+    return count
+
+def cal_perimeter(data, set_data):
+    count = 0
+    
     for char in set_data:
-        rows.append(char[0])
-        cols.append(char[1])
-    if max(rows) - min(rows) == max(cols) - min(cols): # handles squares and single characters
-        return 4
-    
-    
+        count += (4 - neighbours(data, char[0], char[1]))
+
+    return count
+
 
 groups = set()  
 
@@ -55,5 +59,8 @@ for i in range(len(data)):
     for j in range(len(data[0])):
         if any((i, j) in group for group in groups):
             continue
+        group, area = bfs(data, i, j, data[i][j])
+        groups.add(group)
+        sum += area * cal_perimeter(data, group)
 
 print(sum)
