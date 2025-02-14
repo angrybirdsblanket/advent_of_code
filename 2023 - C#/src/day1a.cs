@@ -1,6 +1,4 @@
-using System;
-
-namespace Advent_Of_code{
+namespace Advent_Of_code {
   class day1a {
      public static async Task run() {
       int sum = 0;
@@ -11,12 +9,12 @@ namespace Advent_Of_code{
       Console.WriteLine($"The sum of all the lines is {sum}");
     }
     static int calculateLine(string line) {
-      int? int1 = null;
+      int int1 = 0;
       int int2 = 0;
-      foreach(char character in line) {
+      foreach (char character in line) {
         try {
 
-         if (int1 == null) {
+         if (int1 == 0) {
            int1 = Int32.Parse(character.ToString());
          }
 
@@ -31,7 +29,7 @@ namespace Advent_Of_code{
         }
 
       }
-      if(int1 == null) return 0;
+      if(int1 == 0) return 0;
   
       else if (int2 == 0) {
         return Convert.ToInt32(Convert.ToString(int1) + Convert.ToString(int1));
