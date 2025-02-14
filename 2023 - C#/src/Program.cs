@@ -1,13 +1,10 @@
 ﻿namespace Advent_Of_code {
-  class Entry {
+  class Program {
     static async Task Main() {
-      int sum = 0;
-      await foreach (string line in readFile("../data/2023/day1test.txt")) {
-        Console.WriteLine(line);
-      }
+      await day1b.run();
     }
 
-    static async IAsyncEnumerable<string> readFile(string filePath) {
+    public static async IAsyncEnumerable<string> readFile(string filePath) {
       StreamReader sr = new StreamReader(filePath);
       string? line;
       while ((line = await sr.ReadLineAsync()) != null){
