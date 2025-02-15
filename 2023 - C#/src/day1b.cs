@@ -29,7 +29,7 @@ namespace Advent_Of_code {
         {"zero", 0} 
       };
       
-      string pattern = @"(?=(\d|one|two|three|four|five|six|seven|eight|nine|zero))";
+      string pattern = @"(?=(\d|one|two|three|four|five|six|seven|eight|nine))";
       var matches = Regex.Matches(line, pattern);
       
       if (matches.Count == 1) {
