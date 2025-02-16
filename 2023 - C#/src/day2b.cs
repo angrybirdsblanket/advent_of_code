@@ -1,7 +1,7 @@
 using System.Text.RegularExpressions;
 
 namespace Advent_Of_code {
-  class day2a {
+  class day2b {
     public static async Task run() {
 
       Dictionary<int, string[]> games = new Dictionary<int, string[]> {};
@@ -17,28 +17,25 @@ namespace Advent_Of_code {
     static int validate_game(int id, string[] games) {
       string pattern = @"(\d+ red|\d+ blue|\d+ green)";
 
+      int red = 0; int green = 0; int blue = 0;
       foreach(string game in games) {
-        int red = 12; int green = 13; int blue = 14;
         var matches = Regex.Matches(game, pattern);
         foreach (Match match in matches) {
           switch (match.Value.Split(" ")[1]) {
             case "red":
-              red -= Convert.ToInt32(match.Value.Split(" ")[0]);
+              if (Convert.ToInt32(match.Value.Split(" ")[0]) > red) red = Convert.ToInt32(match.Value.Split(" ")[0]);
               break;
             case "blue":
-              blue -= Convert.ToInt32(match.Value.Split(" ")[0]);
+              if (Convert.ToInt32(match.Value.Split(" ")[0]) > blue) blue = Convert.ToInt32(match.Value.Split(" ")[0]);
               break;
             case "green":
-              green -= Convert.ToInt32(match.Value.Split(" ")[0]);
+              if (Convert.ToInt32(match.Value.Split(" ")[0]) > green) green = Convert.ToInt32(match.Value.Split(" ")[0]);
               break;
-          }
-          if (red < 0 || green < 0 || blue < 0) {
-            return 0;
           }
         }
       }
 
-      return id;
+      return red * blue * green;
     }
   }
 }

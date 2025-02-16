@@ -1,7 +1,7 @@
 ﻿namespace Advent_Of_code {
   class Program {
     static async Task Main() {
-      await day2a.run();
+      await day2b.run();
     }
 
     public static async IAsyncEnumerable<string> readFile(string filePath) {
