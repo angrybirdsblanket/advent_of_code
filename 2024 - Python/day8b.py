@@ -1,8 +1,4 @@
-from openFile import openFile
-
-data = []
-
-openFile(data, "data/day8.txt")
+from openFile import *
 
 antinodes = set()
 

@@ -1,7 +1,7 @@
 rules = []
 data = []
 
-
+# couldnt implement openFile here and part 2
 with open("../../data/day5.txt") as db:
     lines = db.readlines()
     for line in lines:

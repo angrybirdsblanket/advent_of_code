@@ -1,9 +1,5 @@
-from openFile import openFile
+from openFile import *
 from itertools import product
-
-data = []
-
-openFile(data, "data/day7.txt")
 
 def add(num1, num2):
     return num1 + num2

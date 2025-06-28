@@ -1,7 +1,4 @@
-from openFile import openFile
-
-data = []
-openFile(data, "data/day4test.txt")
+from openFile import *
 
 def diagonalSearch(inputArr, count, direction):
     rows = len(inputArr)
@@ -67,7 +64,15 @@ def linearSearch(inputArr, count, direction):
 
     return count
 
+count = 0
 
+count = linearSearch(data, count, "down")
+count = linearSearch(data, count, "up")
+count = linearSearch(data, count, "left")
+count = linearSearch(data, count, "right")
+count = diagonalSearch(data, count, "downLeft")
+count = diagonalSearch(data, count, "downRight")
+count = diagonalSearch(data, count, "upLeft")
+count = diagonalSearch(data, count, "upRight")
 
-
-
+print(count)

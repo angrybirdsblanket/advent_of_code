@@ -111,8 +111,5 @@ class Guard:
                         + arrow
                         + self.__board[self.__char_data[0]][self.__char_data[1] + 1 :]
                     )
-            print(self.board)
-            time.sleep(0.01)
-            os.system("clear")
 
 

@@ -1,13 +1,9 @@
 import re
-from openFile import openFile
-
-arr = []
-file = "data/day3.txt"
+from openFile import *
 
 result = []
-openFile(arr, file)
-for i in range(0, len(arr)):
-    result.append(re.findall(r"mul\(\d+,\d+\)", arr[i]))
+for i in range(0, len(data)):
+    result.append(re.findall(r"mul\(\d+,\d+\)", data[i]))
 
 pairs = []
 sum = 0

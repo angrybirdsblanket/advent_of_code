@@ -1,4 +1,4 @@
-from openFile import openFile
+from openFile import *
 import copy
 
 def find_gap_that_fits(file_table, size):
@@ -23,10 +23,8 @@ def find_file_range(file_table, file_id):
         return min(indices), max(indices) + 1
     return -1, -1
 
-data = []
 file_block_size = {}
 file_gap_size = []
-openFile(data, "data/day9.txt")
 
 # Parse input
 for i in range(len(data[0])):

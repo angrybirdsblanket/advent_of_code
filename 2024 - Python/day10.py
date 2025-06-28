@@ -1,8 +1,4 @@
-from openFile import openFile
-
-data = []
-
-openFile(data, "data/day10.txt")
+from openFile import *
 
 def bfs(data, row, col):
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]

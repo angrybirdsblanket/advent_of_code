@@ -1,6 +1,4 @@
-from openFile import openFile
-data = []
-openFile(data, "data/day6.txt")
+from openFile import *
 
 grid_list = data
 export_grid_keys = []

@@ -1,12 +1,8 @@
-from openFile import openFile
+from openFile import *
 import copy
-
-data = []
 
 file_block_size = []
 file_gap_size = []
-
-openFile(data, "data/day9.txt")
 
 for i in range(len(data[0])):
     if i % 2 == 0:

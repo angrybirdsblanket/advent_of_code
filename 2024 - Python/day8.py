@@ -1,4 +1,4 @@
-from openFile import openFile
+from openFile import *
 
 antinodes = set()  
 
@@ -23,9 +23,6 @@ def walls(tup_1, tup_2, data):
         count += 1
 
     return count
-
-data = []
-openFile(data, "data/day8.txt")
 
 indices = []
 for index, line in enumerate(data):

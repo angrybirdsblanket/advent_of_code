@@ -1,8 +1,4 @@
-from openFile import openFile
-
-data = []
-
-openFile(data, "data/day11.txt")
+from openFile import *
 
 def blink(line):
     new_line = []
