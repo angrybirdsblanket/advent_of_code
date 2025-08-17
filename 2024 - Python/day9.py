@@ -1,5 +1,4 @@
-from openFile import *
-import copy
+from openFile import data
 
 file_block_size = []
 file_gap_size = []

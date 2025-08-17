@@ -1,4 +1,4 @@
-from openFile import *
+from openFile import data
 from collections import deque
 
 DIRECTIONS = [(1, 0), (-1, 0), (0, 1), (0, -1)]

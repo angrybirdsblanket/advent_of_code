@@ -1,4 +1,4 @@
-from openFile import *
+from openFile import data
 from day6Class import Guard
 
 def main():

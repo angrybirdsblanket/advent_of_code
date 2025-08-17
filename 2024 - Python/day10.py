@@ -1,4 +1,4 @@
-from openFile import *
+from openFile import data
 
 def bfs(data, row, col):
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]

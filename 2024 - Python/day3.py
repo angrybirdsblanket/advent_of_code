@@ -1,5 +1,5 @@
 import re
-from openFile import *
+from openFile import data
 
 result = []
 for i in range(0, len(data)):

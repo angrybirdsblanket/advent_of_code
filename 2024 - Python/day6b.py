@@ -1,4 +1,4 @@
-from openFile import *
+from openFile import data
 
 grid_list = data
 export_grid_keys = []

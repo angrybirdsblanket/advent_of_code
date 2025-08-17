@@ -1,4 +1,4 @@
-from openFile import *
+from openFile import data
 from collections import deque
 
 

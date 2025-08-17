@@ -1,4 +1,4 @@
-from openFile import *
+from openFile import data
 
 def diagonalSearch(inputArr, count, direction):
     rows = len(inputArr)

@@ -1,4 +1,4 @@
-from openFile import openFile
+from openFile import data
 
 def check_X_MAS(input):
     count = 0
@@ -30,10 +30,7 @@ def splitterFunction(input, row, col):
     return output
 
 def main():
-    input = []
-    openFile(input, "data/day4.txt")
-
-    print(check_X_MAS(input))
+    print(check_X_MAS(data))
 
     
 

@@ -1,4 +1,4 @@
-from openFile import *
+from openFile import data 
 
 antinodes = set()  
 

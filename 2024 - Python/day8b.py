@@ -1,11 +1,12 @@
-from openFile import *
+from openFile import data
 
 antinodes = set()
 
 grid = []
 
 for line in data:
-    if line.strip() == "": continue
+    if line.strip() == "": 
+        continue
     grid.append(line.strip())
 
 rows = len(grid)

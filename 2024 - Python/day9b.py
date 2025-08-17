@@ -1,5 +1,4 @@
-from openFile import *
-import copy
+from openFile import data
 
 def find_gap_that_fits(file_table, size):
     gap_start = -1

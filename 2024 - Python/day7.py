@@ -1,4 +1,4 @@
-from openFile import *
+from openFile import data
 from itertools import product
 
 def add(num1, num2):
@@ -43,7 +43,6 @@ valid_nums = []
 
 for answer, input_list in lines.items():
     length = len(input_list) - 1
-    carry_over = 0
     possibilities = binary_options(length)
     if calculation(answer, input_list, possibilities, length):
         valid_nums.append(int(answer))

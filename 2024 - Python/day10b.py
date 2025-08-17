@@ -1,6 +1,6 @@
 # to whoever finds this, funnily enough turns out while trying to do part 1 i got the solution for part 2 so that saves me a lot of time, since i know how it works
 
-from openFile import *
+from openFile import data
 
 def step_through(data, row, col, num):
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]

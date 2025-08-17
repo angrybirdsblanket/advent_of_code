@@ -1,4 +1,4 @@
-from openFile import *
+from openFile import data
 from itertools import product
 
 def add(num1, num2):
@@ -19,7 +19,7 @@ def binary_options(size):
 
 def calculation(key, value, possibilities, size):
     if size == 1:
-        for func_index in range(2):
+        for func_index in range(3):
             result = func_tup[func_index](value[0], value[1])  
             if result == int(key):
                 return True
